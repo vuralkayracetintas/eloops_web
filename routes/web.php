@@ -53,6 +53,7 @@ Route::group(['namespace'=>'admin','prefix'=>'admin','as'=>'admin.', 'middleware
       Route::get('/',[KurumlarIndexController::class,'index'])->name('index');
       Route::get('/detay',[KurumlarIndexController::class,'detay'])->name('detay');
       Route::get('/icerikler',[KurumlarIndexController::class,'icerikler'])->name('icerik');
+      Route::post('/icerikler',[KurumlarIndexController::class,'icerikler'])->name('icerik.post');
       Route::get('/ekle',[KurumlarIndexController::class,'create'])->name('ekle');
       Route::post('/ekle',[KurumlarIndexController::class,'store'])->name('ekle.post');
       Route::get('/duzenle/{id}',[KurumlarIndexController::class,'edit'])->name('edit');

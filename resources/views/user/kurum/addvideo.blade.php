@@ -12,12 +12,12 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="video-title" class="col-md-4 col-form-label text-md-right">{{ __('Video Başlığı') }}</label>
+                            <label for="video_baslik" class="col-md-4 col-form-label text-md-right">{{ __('Video Başlığı') }}</label>
 
                             <div class="col-md-6">
-                                <input id="video-title" type="text" class="form-control @error('video-title') is-invalid @enderror" name="video-title" value="{{ old('video-title') }}" required autofocus>
+                                <input id="video_baslik" type="text" class="form-control @error('video_baslik') is-invalid @enderror" name="video_baslik" value="{{ old('video_baslik') }}" required autofocus>
 
-                                @error('video-title')
+                                @error('video_baslik')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -26,12 +26,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="video-description" class="col-md-4 col-form-label text-md-right">{{ __('Video Açıklaması') }}</label>
+                            <label for="video_aciklama" class="col-md-4 col-form-label text-md-right">{{ __('Video Açıklaması') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="video-description" class="form-control @error('video-description') is-invalid @enderror" name="video-description" required>{{ old('video-description') }}</textarea>
+                                <textarea id="video_aciklama" class="form-control @error('video_aciklama') is-invalid @enderror" name="video_aciklama" required>{{ old('video_aciklama') }}</textarea>
 
-                                @error('video-description')
+                                @error('video_aciklama')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -52,14 +52,27 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            <label for="video-file" class="col-md-4 col-form-label text-md-right">{{ __('Video Dosyası') }}</label>
+                            <label for="video_kategoriler" class="col-md-4 col-form-label text-md-right">{{ __('Video Kategorisi') }}</label>
 
                             <div class="col-md-6">
-                                <input id="video-file" type="file" class="form-control-file @error('video-file') is-invalid @enderror" name="video-file" required>
+                                <input id="video_kategoriler" type="text" class="form-control @error('video_kategoriler') is-invalid @enderror" name="video_kategoriler" value="{{ old('video_kategoriler') }}">
 
-                                @error('video-file')
+                                @error('video_kategoriler')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="video_yolu" class="col-md-4 col-form-label text-md-right">{{ __('Video Dosyası') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="video_yolu" type="file" class="form-control-file @error('video_yolu') is-invalid @enderror" name="video_yolu" required>
+
+                                @error('video_yolu')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -67,12 +80,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="video-file" class="col-md-4 col-form-label text-md-right">{{ __('Pdf yukle') }}</label>
+                            <label for="video_dosya_yolu" class="col-md-4 col-form-label text-md-right">{{ __('Pdf yukle') }}</label>
 
                             <div class="col-md-6">
-                                <input id="doc-file" type="file" class="form-control-file @error('doc-file') is-invalid @enderror" name="doc-file" required>
+                                <input id="video_dosya_yolu" type="file" class="form-control-file @error('video_dosya_yolu') is-invalid @enderror" name="video_dosya_yolu" required>
 
-                                @error('doc-file')
+                                @error('video_dosya_yolu')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
