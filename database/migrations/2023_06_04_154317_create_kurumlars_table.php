@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('kurum_user_name');
             $table->string('kurum_user_surname');
             $table->string('kurum_adi');
-            $table->string('selflink');
             $table->string('kurum_email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('kurum_phonenumber');

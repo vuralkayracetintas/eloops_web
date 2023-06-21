@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\indexController;
 use App\Http\Controllers\admin\ogrenciler\indexController as OgrenciIndexController;
 use App\Http\Controllers\admin\kurumlar\indexController as KurumlarIndexController;
+use App\Http\Controllers\admin\kategoriler\indexController as KategorilerIndexController;
 
 use App\Http\Controllers\UserProfileController;
 use App\Models\User;
@@ -39,6 +40,7 @@ Route::get('/icerikuret',[UserProfileController::class,'create'])->name('user.ku
 
 Route::group(['namespace'=>'admin','prefix'=>'admin','as'=>'admin.', 'middleware'=>['auth','AdminControl'] ],function(){
     Route::get('/',[indexController::class,'index'])->name('index');
+    
 
     Route::group(['namespace'=>'ogrenciler','prefix'=>'ogrenciler','as'=>'ogrenciler.'],function(){
       Route::get('/',[OgrenciIndexController::class,'index'])->name('index');
@@ -69,14 +71,14 @@ Route::group(['namespace'=>'admin','prefix'=>'admin','as'=>'admin.', 'middleware
     //   Route::get('/sil/{id}',[KitapIndexController::class,'delete'])->name('delete');
     // });
 
-    // Route::group(['namespace'=>'kategori','prefix'=>'kategori','as'=>'kategori.'],function(){
-    //   Route::get('/',[KategoriIndexController::class,'index'])->name('index');
-    //   Route::get('/ekle',[KategoriIndexController::class,'ekle'])->name('ekle');
-    //   Route::post('/ekle',[KategoriIndexController::class,'store'])->name('ekle.post');
-    //   Route::get('/duzenle/{id}',[KategoriIndexController::class,'edit'])->name('edit');
-    //   Route::post('/duzenle/{id}',[KategoriIndexController::class,'update'])->name('edit.post');
-    //   Route::get('/sil/{id}',[KategoriIndexController::class,'delete'])->name('delete');
-    // });
+    Route::group(['namespace'=>'kategoriler','prefix'=>'kategoriler','as'=>'kategoriler.'],function(){
+      Route::get('/',[KategorilerIndexController::class,'index'])->name('index');
+      Route::get('/ekle',[KategorilerIndexController::class,'ekle'])->name('ekle');
+      Route::post('/ekle',[KategorilerIndexController::class,'store'])->name('ekle.post');
+      Route::get('/duzenle/{id}',[KategorilerIndexController::class,'edit'])->name('edit');
+      Route::post('/duzenle/{id}',[KategorilerIndexController::class,'update'])->name('edit.post');
+      Route::get('/sil/{id}',[KategorilerIndexController::class,'delete'])->name('delete');
+    });
 
     // Route::group(['namespace'=>'slider','prefix'=>'slider','as'=>'slider.'],function(){
     //   Route::get('/',[SliderIndexController::class,'index'])->name('index');

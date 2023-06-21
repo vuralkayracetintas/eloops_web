@@ -29,7 +29,8 @@ class indexController extends Controller
             'kurum_email' => 'required|email|unique:kurumlars',
             'kurum_phonenumber' => 'required',
             'kurum_password' => 'required|min:6',
-            'kurum_hakkinda' => 'required|max:255'
+            'kurum_hakkinda' => 'required|max:255',
+            
         ]);
 
         $kurum = new Kurumlar();
@@ -40,6 +41,7 @@ class indexController extends Controller
         $kurum->kurum_phonenumber = $validatedData['kurum_phonenumber'];
         $kurum->kurum_password = bcrypt($validatedData['kurum_password']);
         $kurum->kurum_hakkinda = $validatedData['kurum_hakkinda'];
+        
 
         // Diğer kurum bilgilerini ekleme
 
@@ -54,6 +56,7 @@ class indexController extends Controller
         $user->password = bcrypt($validatedData['kurum_password']);
         $user->phonenumber = $validatedData['kurum_phonenumber'];
         $user->hakkinda = $validatedData['kurum_hakkinda'];
+        
         $user->permission = 1;
 
         // Diğer kullanıcı bilgilerini ekleme

@@ -2,15 +2,16 @@
 
 @section('content')
 <div class="content">
-                <div class="container-fluid">
+                <div class="container-fluid">    
                     <div class="row">
                         <div class="col-md-12">
-                        
+                            <a href="{{route('admin.kategoriler.ekle')}}" class= "btn btn-success">Yeni Kategori Ekle</a>
                             <div class="card">
                                 <div class="card-header" data-background-color="purple">
-                                    <h4 class="title">E-LooPsAkademi</h4>
-                                    <p class="category">Ogrenciler</p>
+                                    <h4 class="title">Kategori</h4>
+                                    <p class="category">Here is a subtitle for this table</p>
                                 </div>
+                                
                                 <div class="card-content table-responsive">
                                     <table class="table">
                                         <thead class="text-primary">
@@ -18,25 +19,21 @@
                                             <th>Duzenle</th>
                                             <th>Sil</th>                                        
                                         </tr></thead>
-                                        @foreach($data->where('permission', 0)->sortBy('name') as $key => $value)
+                                        @foreach($data as $key => $value)
                                         <tbody>
                                             <tr>
-                                                <td>{{$value['name']}} {{$value['surname']}}</td>
+                                                <td>{{$value['name']}}</td>
                                                 <td>
-                                                    <a href="{{route('admin.ogrenciler.detay',['id'=>$value['id']])}}">Detay</a>
-                                                
+                                                    <a href="">Duzenle</a>
                                                 </td>
                                                 <td>
-                                                    <a href="{{route('admin.ogrenciler.edit',['id'=>$value['id']])}}">Duzenle</a>
-                                                </td>
-                                                <td>
-                                                    <a href="{{route('admin.ogrenciler.delete',['id'=>$value['id']])}}">Sil</a>
-                                                
+                                                    <a href="">Sil</a>
                                                 </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    
                                     {{$data->links()}}
                                 </div>
                             </div>

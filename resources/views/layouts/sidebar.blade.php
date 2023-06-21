@@ -56,7 +56,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./notifications.html">
+                        <a href="{{route('admin.kategoriler.index')}}">
                             <i class="material-icons text-gray">notifications</i>
                             <p>Kategoriler</p>
                         </a>
