@@ -20,15 +20,28 @@ class indexController extends Controller
 
     public function store(Request $request)
     {
-        $all = $request->except('_token');
-        $all['selflink'] = mHelper::permalink($all['name']); 
-        $insert = Kategoriler::create($all);
-       
-        if($insert){
-            return redirect()->back()->with('status','kategori Eklendi');
+        $kategoriAdi = $request->input('name');
+
+        
+        $kategori = Kategoriler::where('name', $kategoriAdi)->first();
+    
+        
+        if ($kategori) {
+            return redirect()->back()->with('status', 'Bu kategori zaten mevcut!');
         }
-        else{
-            return redirect()->back()->with('status','kategori Eklenemedi');
+    
+        $selflink = mHelper::permalink($kategoriAdi);
+    
+        
+        $kategori = Kategoriler::create([
+            'name' => $kategoriAdi,
+            'selflink' => $selflink,
+        ]);
+    
+        if ($kategori) {
+            return redirect()->back()->with('status', 'Kategori başarıyla eklendi!');
+        } else {
+            return redirect()->back()->with('status', 'Kategori eklenemedi!');
         }
     }
 
