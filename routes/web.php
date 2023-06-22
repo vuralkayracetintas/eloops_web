@@ -33,6 +33,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/profile', [UserProfileController::class, 'index'])->name('front.user.profile');
 Route::post('/profile', [UserProfileController::class, 'store'])->name('front.user.profile.store');
 Route::get('/icerikuret',[UserProfileController::class,'create'])->name('front.kurum.addvideo')->middleware('auth','KurumKontroller');
+Route::post('/icerikuret',[UserProfileController::class,'postVideoYukle'])->name('front.kurum.addvideo.post')->middleware('auth','KurumKontroller');
 
 //Route::group(['namespace'=>''])
 

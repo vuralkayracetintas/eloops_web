@@ -6,10 +6,14 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Video Yükle yeni sayfa') }}</div>
-
+                @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+                @endif
                 <div class="card-body">
                     <form method="POST" action="" enctype="multipart/form-data">
-                        @csrf
+                        {{ csrf_field() }}
 
                         <div class="form-group row">
                             <label for="video_baslik" class="col-md-4 col-form-label text-md-right">{{ __('Video Başlığı') }}</label>
@@ -70,7 +74,7 @@
                                 @enderror
                             </div>
                         </div>
-                     
+
                         <div class="form-group row">
                             <label for="video_yolu" class="col-md-4 col-form-label text-md-right">{{ __('Video Dosyası') }}</label>
 
