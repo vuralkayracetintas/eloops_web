@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategoriler;
 use Illuminate\Http\Request;
 
 class UserProfileController extends Controller
@@ -11,6 +12,7 @@ class UserProfileController extends Controller
         return view('user.profile');
     }
     public function create(){
-        return view('user.kurum.addvideo');
+        $data = Kategoriler::all();
+        return view('user.kurum.addvideo',['data'=>$data]);
     }
 }
