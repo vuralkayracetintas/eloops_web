@@ -70,19 +70,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="video_kategoriler" class="col-md-4 col-form-label text-md-right">{{ __('Video Kategorisi') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="video_kategoriler" type="text" class="form-control @error('video_kategoriler') is-invalid @enderror" name="video_kategoriler" value="{{ old('video_kategoriler') }}">
-
-                                @error('video_kategoriler')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
+                     
                         <div class="form-group row">
                             <label for="video_yolu" class="col-md-4 col-form-label text-md-right">{{ __('Video Dosyası') }}</label>
 
