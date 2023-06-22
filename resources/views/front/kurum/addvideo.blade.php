@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Video Yükle') }}</div>
+                <div class="card-header">{{ __('Video Yükle yeni sayfa') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="" enctype="multipart/form-data">

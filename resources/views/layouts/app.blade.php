@@ -60,9 +60,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a href="{{route('user.profile')}}" class="dropdown-item">Profile</a>
+                                <a href="{{route('front.user.profile')}}" class="dropdown-item">Profile</a>
                                 @if(Auth::user()->permission == 1)
-                                <a href="{{route('user.kurum.addvideo')}}" class="dropdown-item">Egitim Olustur</a>
+                                <a href="{{route('front.kurum.addvideo')}}" class="dropdown-item">Egitim Olustur</a>
                                 @endif
 
                                 @if(Auth::user()->permission == 2)

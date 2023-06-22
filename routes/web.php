@@ -30,9 +30,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile', [UserProfileController::class, 'index'])->name('user.profile');
-Route::post('/profile', [UserProfileController::class, 'store'])->name('profile.store');
-Route::get('/icerikuret',[UserProfileController::class,'create'])->name('user.kurum.addvideo')->middleware('auth','KurumKontroller');
+Route::get('/profile', [UserProfileController::class, 'index'])->name('front.user.profile');
+Route::post('/profile', [UserProfileController::class, 'store'])->name('front.user.profile.store');
+Route::get('/icerikuret',[UserProfileController::class,'create'])->name('front.kurum.addvideo')->middleware('auth','KurumKontroller');
+
+//Route::group(['namespace'=>''])
 
 
 

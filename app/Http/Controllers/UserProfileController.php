@@ -9,10 +9,10 @@ class UserProfileController extends Controller
 {
     public function index()
     {
-        return view('user.profile');
+        return view('front.users.profile');
     }
     public function create(){
         $data = Kategoriler::all();
-        return view('user.kurum.addvideo',['data'=>$data]);
+        return view('front.kurum.addvideo',['data'=>$data]);
     }
 }
