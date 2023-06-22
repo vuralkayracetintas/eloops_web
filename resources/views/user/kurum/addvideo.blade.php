@@ -39,14 +39,11 @@
                             </div>
                         </div>
 
-
-
-
-
-                        <div class="form-group row">
+                        <div class="search_select_box row">
                             <label for="video_kategoriler" class="col-md-4 col-form-label text-md-right">{{ __('Video Kategorisi') }}</label>
+
                             <div class="col-md-6">
-                                <select name="video_kategoriler" id="video_kategoriler" class="form-control @error('video_kategoriler') is-invalid @enderror">
+                                <select name="video_kategoriler" id="video_kategoriler" class="form-control @error('video_kategoriler') is-invalid @enderror" data-live-search="true">
                                     @foreach($data as $key => $value)
                                     <option value="{{ $value['id'] }}">{{ $value['name'] }}</option>
                                     @endforeach

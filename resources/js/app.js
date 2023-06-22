@@ -37,3 +37,9 @@ app.component('example-component', ExampleComponent);
  */
 
 app.mount('#app');
+
+$(document).ready(function(){
+    $('.search_select_box select').selectpicker();
+})
+
+
