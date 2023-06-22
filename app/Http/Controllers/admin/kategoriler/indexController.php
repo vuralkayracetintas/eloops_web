@@ -20,19 +20,15 @@ class indexController extends Controller
 
     public function store(Request $request)
     {
-        $kategoriAdi = $request->input('name');
-
-        
+        $kategoriAdi = $request->input('name');        
         $kategori = Kategoriler::where('name', $kategoriAdi)->first();
-    
-        
+
         if ($kategori) {
             return redirect()->back()->with('status', 'Bu kategori zaten mevcut!');
-        }
-    
+        }    
+
+
         $selflink = mHelper::permalink($kategoriAdi);
-    
-        
         $kategori = Kategoriler::create([
             'name' => $kategoriAdi,
             'selflink' => $selflink,
