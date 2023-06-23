@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kategoriler;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
@@ -18,13 +19,13 @@ class VideoController extends Controller
     public function store(Request $request)
     {
 
-
+        
         $validatedData = $request->validate([
             'video_baslik' => 'required',
             'video_aciklama' => 'required',
             'video_kategoriler' => 'required',
             'video_tags' => 'required',
-            'video_yolu' => 'required|file',
+            'video_yolu' => 'required|file|mimetypes:video/mp4',
             'video_dosya_yolu' => 'required|file',
         ]);
 
@@ -47,6 +48,29 @@ class VideoController extends Controller
         $fileName = $file->getClientOriginalName();
         $file->move(public_path('videos'), $fileName);
         $video->video_yolu = $fileName;
+
+//         $fileName = $request->video->getClientOriginalName();
+//         $filePath = 'videos/' . $fileName;
+ 
+//         $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->video));
+ 
+//         // File URL to access the video in frontend
+// //        $url = Storage::disk('public')->url($filePath);
+ 
+//         if ($isFileUploaded) {
+//             $video = new Video();
+//             $video->title = $request->title;
+//             $video->path = $filePath;
+//             $video->save();
+ 
+//             return back()
+//             ->with('success','Video has been successfully uploaded.');
+//         }
+ 
+//         return back()
+//             ->with('error','Unexpected error occured');
+
+        
     
 
 

@@ -2,17 +2,17 @@
 
 @section('content')
 
-
+@if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+                @endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Video Yükle yeni sayfa') }}</div>
-                @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-                @endif
+                
                 <div class="card-body">
                     <form method="POST" action="" enctype="multipart/form-data">
                         {{ csrf_field() }}
@@ -62,16 +62,13 @@
                                 @enderror
                             </div>
                         </div>
-
-                    
-
                         <div class="form-group row">
-                            <label for="video-tags" class="col-md-4 col-form-label text-md-right">{{ __('Etiketler') }}</label>
+                            <label for="video_tags" class="col-md-4 col-form-label text-md-right">{{ __('Etiketler') }}</label>
 
                             <div class="col-md-6">
-                                <input id="video-tags" type="text" class="form-control @error('video-tags') is-invalid @enderror" name="video-tags" value="{{ old('video-tags') }}">
+                                <input id="video_tags" type="text" class="form-control @error('video_tags') is-invalid @enderror" name="video_tags" value="{{ old('video_tags') }}">
 
-                                @error('video-tags')
+                                @error('video_tags')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
