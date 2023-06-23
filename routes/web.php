@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\indexController;
 use App\Http\Controllers\admin\ogrenciler\indexController as OgrenciIndexController;
 use App\Http\Controllers\admin\kurumlar\indexController as KurumlarIndexController;
 use App\Http\Controllers\admin\kategoriler\indexController as KategorilerIndexController;
+use App\Http\Controllers\VideoController ;
 
 use App\Http\Controllers\UserProfileController;
 use App\Models\User;
@@ -30,9 +31,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile', [UserProfileController::class, 'index'])->name('user.profile');
-Route::post('/profile', [UserProfileController::class, 'store'])->name('profile.store');
-Route::get('/icerikuret',[UserProfileController::class,'create'])->name('user.kurum.addvideo');
+Route::get('/profile', [UserProfileController::class, 'index'])->name('front.user.profile');
+Route::post('/profile', [UserProfileController::class, 'store'])->name('front.user.profile.store');
+
+
+//Route::get('/icerikuret',[UserProfileController::class,'create'])->name('front.kurum.addvideo')->middleware('auth','KurumKontroller');
+Route::get('/icerikuret', [VideoController::class,'create'])->name('front.kurum.addvideo')->middleware('auth','KurumKontroller');
+Route::post('/icerikuret', [VideoController::class,'store'])->name('front.kurum.addvideo.post')->middleware('auth','KurumKontroller');
+
+
+
+//Route::group(['namespace'=>''])
 
 
 

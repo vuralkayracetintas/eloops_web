@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->string('video_baslik');
-            $table->string('video_aciklama');
-            $table->string('video_etiketler');
-            $table->string('video_kategoriler');
+            $table->text('video_aciklama');
+            $table->unsignedBigInteger('video_kategoriler');
+            $table->string('video_tags');
             $table->string('video_yolu');
             $table->string('video_dosya_yolu');
-            $table->integer('video_ucret')->nullable();
+            $table->integer('price')->nullable();
             $table->timestamps();
         });
     }
