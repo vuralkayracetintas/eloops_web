@@ -5,20 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class videos extends Model
+class Video extends Model
 {
+    protected $table = 'videos'; // Kullanılacak veritabanı tablosunun adı
+
     protected $fillable = [
         'video_baslik',
         'video_aciklama',
-        'video_etiketler',
-        'kategori_id',
+        'video_kategoriler',
+        'video_tags',
         'video_yolu',
         'video_dosya_yolu',
-        'video_ucret'
+        // Diğer doldurulabilir (fillable) sütunları buraya ekleyin
     ];
-
-    public function kategori()
-    {
-        return $this->belongsTo(Kategoriler::class, 'kategori_id');
-    }
 }
