@@ -45,7 +45,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="search_select_box row">
                             <label for="video_kategoriler" class="col-md-4 col-form-label text-md-right">{{ __('Video Kategorisi') }}</label>
 
                             <div class="col-md-6">
@@ -62,6 +62,8 @@
                                 @enderror
                             </div>
                         </div>
+
+                    
 
                         <div class="form-group row">
                             <label for="video-tags" class="col-md-4 col-form-label text-md-right">{{ __('Etiketler') }}</label>
