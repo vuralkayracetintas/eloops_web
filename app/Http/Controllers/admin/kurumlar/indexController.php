@@ -77,6 +77,7 @@ class indexController extends Controller
         }
         return view('admin.kurumlar.detay');
     }
+    
     public function icerikler(){
         return view('admin.kurumlar.icerik');
     }

@@ -32,7 +32,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{route('admin.icerikler.index')}}">
                             <i class="material-icons">library_books</i>
                             <p>Icerikler</p>
                         </a>

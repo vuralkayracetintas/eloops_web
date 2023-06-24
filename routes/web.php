@@ -6,9 +6,11 @@ use App\Http\Controllers\admin\indexController;
 use App\Http\Controllers\admin\ogrenciler\indexController as OgrenciIndexController;
 use App\Http\Controllers\admin\kurumlar\indexController as KurumlarIndexController;
 use App\Http\Controllers\admin\kategoriler\indexController as KategorilerIndexController;
+use App\Http\Controllers\admin\icerikler\indexController as IceriklerIndexController;
 use App\Http\Controllers\VideoController ;
 
 use App\Http\Controllers\UserProfileController;
+use App\Models\Kategoriler;
 use App\Models\User;
 use Illuminate\Support\Facades\Input;
 
@@ -71,14 +73,17 @@ Route::group(['namespace'=>'admin','prefix'=>'admin','as'=>'admin.', 'middleware
       Route::post('/duzenle/{id}',[KurumlarIndexController::class,'update'])->name('edit.post');
       Route::get('/sil/{id}',[KurumlarIndexController::class,'delete'])->name('delete');
     });
-    // Route::group(['namespace'=>'kitap','prefix'=>'kitap','as'=>'kitap.'],function(){
-    //   Route::get('/',[KitapIndexController::class,'index'])->name('index');
-    //   Route::get('/ekle',[KitapIndexController::class,'ekle'])->name('ekle');
-    //   Route::post('/ekle',[KitapIndexController::class,'store'])->name('ekle.post');
-    //   Route::get('/duzenle/{id}',[KitapIndexController::class,'edit'])->name('edit');
-    //   Route::post('/duzenle/{id}',[KitapIndexController::class,'update'])->name('edit.post');
-    //   Route::get('/sil/{id}',[KitapIndexController::class,'delete'])->name('delete');
-    // });
+
+
+    Route::group(['namespace'=>'icerikler','prefix'=>'icerikler','as'=>'icerikler.'],function(){
+      Route::get('/',[IceriklerIndexController::class,'index'])->name('index');
+      Route::get('/ekle',[IceriklerIndexController::class,'ekle'])->name('ekle');
+      Route::post('/ekle',[IceriklerIndexController::class,'store'])->name('ekle.post');
+      Route::get('/detay',[IceriklerIndexController::class,'detay'])->name('detay');
+      Route::get('/duzenle/{id}',[IceriklerIndexController::class,'edit'])->name('edit');
+      Route::post('/duzenle/{id}',[IceriklerIndexController::class,'update'])->name('edit.post');
+      Route::get('/sil/{id}',[IceriklerIndexController::class,'delete'])->name('delete');
+    });
 
     Route::group(['namespace'=>'kategoriler','prefix'=>'kategoriler','as'=>'kategoriler.'],function(){
       Route::get('/',[KategorilerIndexController::class,'index'])->name('index');
