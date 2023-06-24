@@ -26,11 +26,18 @@
                                 <p>Video Kategorisi {{ $data[0]['video_kategoriler'] }}</p>
                                 <p>Video yolu : {{ $data[0]['video_yolu']}}</p>
                                 <p>Dosya Yolu l {{$data[0]['video_dosya_yolu']}}</p>
-                              
-                              
-                              
 
-                              
+                                
+
+
+
+                                <video style="max-width: 100%; height: auto;" controls>
+                                    <source src="{{asset('videos/' . $data[0]['video_yolu'])}}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+
+
+
 
                             </div>
                         </div>
