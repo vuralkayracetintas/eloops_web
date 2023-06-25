@@ -15,10 +15,7 @@ class indexController extends Controller
 
     public function detay()
      {
-
-        
     
-        
         $c = Video::where('id',request('id'))->count();
         if($c!=0){
             $data = Video::where('id',request('id'))->get();

@@ -44,10 +44,18 @@ class VideoController extends Controller
         $video->video_yolu = $videoYoluPath;
         $video->video_dosya_yolu = $videoDosyaYoluPath;
 
-        $file = $request->file('video_yolu');
-        $fileName = $file->getClientOriginalName();
-        $file->move(public_path('videos'), $fileName);
+        //video yukle
+        $videofile = $request->file('video_yolu');
+        $fileName = $videofile->getClientOriginalName();
+        $videofile->move(public_path('videos'), $fileName);
         $video->video_yolu = $fileName;
+
+        // dosya yukle
+        $dosyafile = $request->file('video_dosya_yolu');
+        $fileName = $dosyafile->getClientOriginalName();
+        $dosyafile->move(public_path('dosyalar'), $fileName);
+        $video->video_dosya_yolu = $fileName;
+        
         $video->save();
 
 
