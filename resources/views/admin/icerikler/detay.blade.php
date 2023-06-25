@@ -27,17 +27,21 @@
                                 <p>Video yolu : {{ $data[0]['video_yolu']}}</p>
                                 <p>Dosya Yolu l {{$data[0]['video_dosya_yolu']}}</p>
 
-                                
-
-
-
+                                @if(pathinfo($data[0]['video_yolu'], PATHINFO_EXTENSION) === 'mp4')
                                 <video style="max-width: 100%; height: auto;" controls>
                                     <source src="{{asset('videos/' . $data[0]['video_yolu'])}}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
+                                @else
+                                <p>Video dosyası bulunamadı.</p>
+                                @endif
 
 
-
+                                @if(pathinfo($data[0]['video_dosya_yolu'], PATHINFO_EXTENSION) === 'pdf')
+                                <embed src="{{ asset('dosyalar/' . $data[0]['video_dosya_yolu']) }}" type="application/pdf" width="100%" height="600px" />
+                                @else
+                                <p>PDF dosyası bulunamadı.</p>
+                                @endif
 
                             </div>
                         </div>

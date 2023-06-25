@@ -21,10 +21,12 @@
                                     <th>Sil</th>
 
                                 </tr>
-                                @if($data != null)
-                                <td>HENUZ ICERIK YUKLENMEDI</td>
-                                @endif
+                                
                             </thead>
+                            @if($data ->isEmpty())
+                                <td>HENUZ ICERIK YUKLENMEDI</td>
+                                <p>Icerik Henuz Yuklenmedi</p>
+                                @endif
 
                             @foreach($data as $key => $value)
                             <tbody>
