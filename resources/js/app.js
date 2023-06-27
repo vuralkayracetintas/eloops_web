@@ -41,3 +41,11 @@ app.mount('#app');
 $(document).ready(function(){
     $('.search_select_box select').selectpicker();
 })
+
+let docTitle = document.title;
+window.addEventListener('blur',()=>{
+    document.title = 'Cabuk geri gel!';
+})
+window.addEventListener('focus',()=>{
+    document.title = docTitle;
+})

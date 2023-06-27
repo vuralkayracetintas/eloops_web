@@ -23,10 +23,14 @@
                             <div class="card-body">
                                 <p>Video Basligi {{$data[0]['video_baslik']}}</p>
                                 <p>Kurum Sahibi Ad: {{ $data[0]['video_aciklama'] }}</p>
-                                <p>Video Kategorisi {{ $data[0]['video_kategoriler'] }}</p>
+                                <p>Video Kategorisi {{ $data[0]['video_kategoriler']}}</p>
                                 <p>Video yolu : {{ $data[0]['video_yolu']}}</p>
                                 <p>Dosya Yolu l {{$data[0]['video_dosya_yolu']}}</p>
-
+                                @if($data[0]['approved']===-0)
+                                <p>Video Durumu : Onaylanmadi</p>
+                                @else
+                                <p>Video Durumu : Onaylandi</p>
+                                @endif
                                 @if(pathinfo($data[0]['video_yolu'], PATHINFO_EXTENSION) === 'mp4')
                                 <video style="max-width: 100%; height: auto;" controls>
                                     <source src="{{asset('videos/' . $data[0]['video_yolu'])}}" type="video/mp4">

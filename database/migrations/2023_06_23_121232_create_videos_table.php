@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('video_yolu');
             $table->string('video_dosya_yolu');
             $table->integer('price')->nullable();
+            $table->integer('approved')->default(0);
             $table->timestamps();
         });
     }

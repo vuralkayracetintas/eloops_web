@@ -27,6 +27,7 @@ class VideoController extends Controller
             'video_tags' => 'required',
             'video_yolu' => 'required|file|mimetypes:video/mp4',
             'video_dosya_yolu' => 'required|file',
+            
         ]);
 
         $videoYolu = $request->file('video_yolu');
@@ -43,6 +44,7 @@ class VideoController extends Controller
         $video->video_tags = $validatedData['video_tags'];
         $video->video_yolu = $videoYoluPath;
         $video->video_dosya_yolu = $videoDosyaYoluPath;
+        $video->approved = 0;
 
         //video yukle
         $videofile = $request->file('video_yolu');
