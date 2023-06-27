@@ -81,4 +81,34 @@ class indexController extends Controller
     public function icerikler(){
         return view('admin.kurumlar.icerik');
     }
+
+    public function edit($id){
+        $c = Kurumlar::where('id',$id)->count();
+
+        if($c !=0){
+            $data = Kurumlar::where('id',$id)->get();
+            return view('admin.kurumlar.edit',['data'=>$data]);
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
+    public function update(Request $request) {
+        $id = $request->route('id');
+        $c = Kurumlar::where('id','=',$id)->count();
+        if($c !=0){
+            $all = $request->except('_token');
+            $update = Kurumlar::where('id','=',$id)->update($all);
+            if($update){
+                return redirect()->back()->with('status','Kurum bilgileri güncellendi');
+            }
+            else{
+                return redirect()->back()->with('status','Kurum bilgileri güncellenemedi');
+            }
+        }
+        else{
+            return redirect('/');
+        }
+    }
 }
