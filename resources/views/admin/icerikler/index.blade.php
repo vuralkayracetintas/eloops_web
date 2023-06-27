@@ -5,7 +5,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-
+                @if(session('status'))
+                <div class="alert alert-primary" role="alert">
+                    {{session('status')}}
+                </div>
+                @endif
                 <div class="card">
                     <div class="card-header" data-background-color="purple">
                         <h4 class="title">Icerikler</h4>
@@ -19,14 +23,15 @@
                                     <th>Isim</th>
                                     <th>Aciklama</th>
                                     <th>Sil</th>
+                                    <th></th>
 
                                 </tr>
-                                
+
                             </thead>
                             @if($data ->isEmpty())
-                                <td>HENUZ ICERIK YUKLENMEDI</td>
-                                <p>Icerik Henuz Yuklenmedi</p>
-                                @endif
+                            <td>HENUZ ICERIK YUKLENMEDI</td>
+                            <p>Icerik Henuz Yuklenmedi</p>
+                            @endif
 
                             @foreach($data as $key => $value)
                             <tbody>
@@ -43,7 +48,7 @@
 
                                     </td>
                                     <td>
-                                        <a href="">Sil</a>
+                                        <a href="{{route('admin.icerikler.delete',['id'=>$value['id']])}}">Sil</a>
                                     </td>
                                 </tr>
                                 @endforeach

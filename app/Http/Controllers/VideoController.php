@@ -19,7 +19,7 @@ class VideoController extends Controller
     public function store(Request $request)
     {
 
-        
+
         $validatedData = $request->validate([
             'video_baslik' => 'required',
             'video_aciklama' => 'required',
@@ -55,10 +55,12 @@ class VideoController extends Controller
         $fileName = $dosyafile->getClientOriginalName();
         $dosyafile->move(public_path('dosyalar'), $fileName);
         $video->video_dosya_yolu = $fileName;
-        
+
         $video->save();
 
 
         return redirect()->back()->with('status', 'Video başarıyla yüklendi.');
     }
+
+  
 }

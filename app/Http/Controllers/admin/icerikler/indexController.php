@@ -26,4 +26,21 @@ class indexController extends Controller
         }
         return view('admin.icerikler.detay');
     }
+
+    public function delete($id)
+    {
+        $c = Video::where('id', $id)->count();
+        if ($c != 0) {
+            try {
+                $delete = Video::where('id', $id)->delete();
+                if ($delete) {
+                    return redirect()->back()->with('status', 'Video başarıyla silindi.');
+                } else {
+                    return redirect()->back()->with('status', 'Video silinirken bir hata olustu.');
+                }
+            } catch (\Exception $e) {
+                return redirect()->back()->with('status', 'Video silinirken bir hata oluştu.');
+            }
+        }
+    }
 }
