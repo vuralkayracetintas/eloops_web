@@ -21,8 +21,8 @@
                             <thead class="text-primary">
                                 <tr>
                                     <th>Isim</th>
-                                    <th>Aciklama</th>
-                                    <th>Sil</th>
+                                    <th></th>
+                                    <th></th>
                                     <th></th>
 
                                 </tr>
@@ -45,6 +45,10 @@
 
                                     <td>
                                         <a href="{{route('admin.icerikler.detay',['id'=>$value['id']])}}">Detay</a>
+
+                                    </td>
+                                    <td>
+                                        <a href="">Duzenle</a>
 
                                     </td>
                                     <td>
