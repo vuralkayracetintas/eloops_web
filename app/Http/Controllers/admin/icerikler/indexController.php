@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\admin\icerikler;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kategoriler;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
 class indexController extends Controller
 {
     public function index(){
+        
         $data = Video::paginate(10);
         return view('admin.icerikler.index',['data'=>$data]);
     }
@@ -41,6 +43,19 @@ class indexController extends Controller
             } catch (\Exception $e) {
                 return redirect()->back()->with('status', 'Video silinirken bir hata oluştu.');
             }
+        }
+    }
+
+    public function edit($id){
+        
+        $c = Video::where('id',$id)->count();
+        if($c!=0){
+            $data = Video::where('id',$id)->get();
+            $data2 = Kategoriler::all();
+            return view('admin.icerikler.edit',['data'=>$data,'data2'=>$data2]);
+        }
+        else{
+            return redirect()->back();
         }
     }
 }

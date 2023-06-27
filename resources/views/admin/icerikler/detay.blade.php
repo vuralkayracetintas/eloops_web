@@ -5,7 +5,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
 
                 @if(session('status'))
                 <div class="alert alert-primary" role="alert">
@@ -22,10 +22,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <p>Video Basligi {{$data[0]['video_baslik']}}</p>
-                                <p>Kurum Sahibi Ad: {{ $data[0]['video_aciklama'] }}</p>
+                                <p>Video Hakkinda: {{ $data[0]['video_aciklama'] }}</p>
                                 <p>Video Kategorisi {{ $data[0]['video_kategoriler']}}</p>
                                 <p>Video yolu : {{ $data[0]['video_yolu']}}</p>
                                 <p>Dosya Yolu l {{$data[0]['video_dosya_yolu']}}</p>
+                                <p>Video Etiketleri : {{$data[0]['video_tags']}}</p>
                                 @if($data[0]['approved']===-0)
                                 <p>Video Durumu : Onaylanmadi</p>
                                 @else
@@ -39,8 +40,6 @@
                                 @else
                                 <p>Video dosyası bulunamadı.</p>
                                 @endif
-
-
                                 @if(pathinfo($data[0]['video_dosya_yolu'], PATHINFO_EXTENSION) === 'pdf')
                                 <embed src="{{ asset('dosyalar/' . $data[0]['video_dosya_yolu']) }}" type="application/pdf" width="100%" height="600px" />
                                 @else
@@ -50,20 +49,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card card-profile">
-                    <img src="" alt="E-LooPsAkademi" class="branding-logo dark-logo" style="width: 250px; height: 200px; border-radius: 100%; ">
-                    <div class="content">
-                        <h6 class="category text-gray"></h6>
-                        <h4 class="card-title"></h4>
-                        <p class="card-content">
-
-                        </p>
-                        <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
-                    </div>
-
                 </div>
             </div>
         </div>

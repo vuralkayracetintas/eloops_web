@@ -3,16 +3,16 @@
 @section('content')
 
 @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-                @endif
+<div class="alert alert-success" role="alert">
+    {{ session('status') }}
+</div>
+@endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Video Yükle yeni sayfa') }}</div>
-                
+
                 <div class="card-body">
                     <form method="POST" action="" enctype="multipart/form-data">
                         {{ csrf_field() }}
@@ -49,9 +49,9 @@
                             <label for="video_kategoriler" class="col-md-4 col-form-label text-md-right">{{ __('Video Kategorisi') }}</label>
 
                             <div class="col-md-6">
-                                <select  name="video_kategoriler" id="video_kategoriler" class="form-control @error('video_kategoriler') is-invalid @enderror" data-live-search="true">
+                                <select name="video_kategoriler" id="video_kategoriler" class="form-control @error('video_kategoriler') is-invalid @enderror" data-live-search="true">
                                     @foreach($data as $key => $value)
-                                    <option value="{{ $value['id'] }}">{{ $value['name'] }}</option>
+                                    <option value="{{ $value['name'] }}">{{ $value['name'] }}</option>
                                     @endforeach
                                 </select>
 

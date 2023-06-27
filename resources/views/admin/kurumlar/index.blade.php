@@ -20,7 +20,7 @@
                                     <th></th>
                                     <th></th>
                                     <th></th>
-                                    
+
                                 </tr>
                             </thead>
                             @foreach($data as $key => $value)
@@ -31,10 +31,9 @@
                                         <a href="{{route('admin.kurumlar.icerik')}}">Kurum Icerikleri</a>
                                     </td>
                                     <td>
+                                        <a href="{{route('admin.kurumlar.detay',['id'=>$value['id']])}}">Detay</a>
                                     </td>
                                     <td>
-                                        <a href="{{route('admin.kurumlar.detay',['id'=>$value['id']])}}">Detay</a>
-
                                         <a href="{{route('admin.kurumlar.edit',['id'=>$value['id']])}}">Duzenle</a>
                                     </td>
                                     <td>

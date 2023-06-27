@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('video_baslik');
             $table->text('video_aciklama');
-            $table->unsignedBigInteger('video_kategoriler');
+            $table->string('video_kategoriler');
             $table->string('video_tags');
             $table->string('video_yolu');
             $table->string('video_dosya_yolu');

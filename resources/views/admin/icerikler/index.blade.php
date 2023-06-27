@@ -24,6 +24,7 @@
                                     <th></th>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
 
                                 </tr>
 
@@ -48,7 +49,7 @@
 
                                     </td>
                                     <td>
-                                        <a href="">Duzenle</a>
+                                        <a href="{{route('admin.icerikler.edit',['id'=>$value['id']])}}">Duzenle</a>
 
                                     </td>
                                     <td>
