@@ -27,7 +27,7 @@
                                 <p>Kurum Adi : {{ $data[0]['kurum_adi']}}</p>
                                 <p>Kurum Mail: {{ $data[0]['kurum_email'] }}</p>
                                 <p>Telefon Numarası: {{ $data[0]['kurum_phonenumber']}}</p>
-                                <p>Hakkında: {{ $data[0]['kurum_hakkinda]'] }}</p>
+                                <p>Hakkında: {{ $data[0]['kurum_hakkinda'] }}</p>
                             </div>
                         </div>
                     </div>
