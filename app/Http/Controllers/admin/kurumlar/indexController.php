@@ -30,7 +30,7 @@ class indexController extends Controller
             'kurum_phonenumber' => 'required',
             'kurum_password' => 'required|min:6',
             'kurum_hakkinda' => 'required|max:255',
-            
+
         ]);
 
         $kurum = new Kurumlar();
@@ -41,7 +41,7 @@ class indexController extends Controller
         $kurum->kurum_phonenumber = $validatedData['kurum_phonenumber'];
         $kurum->kurum_password = bcrypt($validatedData['kurum_password']);
         $kurum->kurum_hakkinda = $validatedData['kurum_hakkinda'];
-        
+
 
         // Diğer kurum bilgilerini ekleme
 
@@ -56,7 +56,7 @@ class indexController extends Controller
         $user->password = bcrypt($validatedData['kurum_password']);
         $user->phonenumber = $validatedData['kurum_phonenumber'];
         $user->hakkinda = $validatedData['kurum_hakkinda'];
-        
+
         $user->permission = 1;
 
         // Diğer kullanıcı bilgilerini ekleme
@@ -67,47 +67,61 @@ class indexController extends Controller
 
     public function detay()
     {
-        $c = Kurumlar::where('id',request('id'))->count();
-        if($c!=0){
-            $data = Kurumlar::where('id',request('id'))->get();
-            return view('admin.kurumlar.detay',['data'=>$data]);
-        }
-        else{
+        $c = Kurumlar::where('id', request('id'))->count();
+        if ($c != 0) {
+            $data = Kurumlar::where('id', request('id'))->get();
+            return view('admin.kurumlar.detay', ['data' => $data]);
+        } else {
             return redirect()->back();
         }
         return view('admin.kurumlar.detay');
     }
-    
-    public function icerikler(){
+
+    public function icerikler()
+    {
         return view('admin.kurumlar.icerik');
     }
 
-    public function edit($id){
-        $c = Kurumlar::where('id',$id)->count();
+    public function edit($id)
+    {
+        $c = Kurumlar::where('id', $id)->count();
 
-        if($c !=0){
-            $data = Kurumlar::where('id',$id)->get();
-            return view('admin.kurumlar.edit',['data'=>$data]);
-        }
-        else{
+        if ($c != 0) {
+            $data = Kurumlar::where('id', $id)->get();
+            return view('admin.kurumlar.edit', ['data' => $data]);
+        } else {
             return redirect()->back();
         }
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         $id = $request->route('id');
-        $c = Kurumlar::where('id','=',$id)->count();
-        if($c !=0){
+        $c = Kurumlar::where('id', '=', $id)->count();
+        if ($c != 0) {
             $all = $request->except('_token');
-            $update = Kurumlar::where('id','=',$id)->update($all);
-            if($update){
-                return redirect()->back()->with('status','Kurum bilgileri güncellendi');
+            $update = Kurumlar::where('id', '=', $id)->update($all);
+            if ($update) {
+                return redirect()->back()->with('status', 'Kurum bilgileri güncellendi');
+            } else {
+                return redirect()->back()->with('status', 'Kurum bilgileri güncellenemedi');
             }
-            else{
-                return redirect()->back()->with('status','Kurum bilgileri güncellenemedi');
-            }
+        } else {
+            return redirect('/');
         }
-        else{
+    }
+
+    public function delete($id)
+    {
+        $c = Kurumlar::where('id', $id)->count();
+        if ($c != 0) {
+            $delete = Kurumlar::where('id', $id)->delete();
+            if ($delete) {
+                return redirect()->back()->with('status', 'Kurum silindi');
+            } else {
+                return redirect()->back()->with('status', 'Kurum silinemedi');
+            }
+        } else {
             return redirect('/');
         }
     }
