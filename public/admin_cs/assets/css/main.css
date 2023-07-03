@@ -89,13 +89,13 @@ nav {
     margin-right: 20px;
 }
 
-/* .shortcut-links a {
+.shortcut-links a {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    width: fit-content;
+    
     flex-wrap: wrap;
-} */
+}
 
 .shortcut-links a:first-child {
     color: #ed3833;
@@ -114,13 +114,13 @@ nav {
     color: #5a5a5a;
 }
 
-/* .subscribed-list a {
+.subscribed-list a {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    width: fit-content;
+    
     flex-wrap: wrap;
-} */
+}
 
 .subscribed-list a img {
     width: 25px;
