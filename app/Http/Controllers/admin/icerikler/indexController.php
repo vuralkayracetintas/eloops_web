@@ -58,4 +58,20 @@ class indexController extends Controller
             return redirect()->back();
         }
     }
+
+    public function update(Request $request){
+        $id = $request->route('id');
+        $c = Video::where('id', '=', $id)->count();
+        if ($c != 0) {
+            $all = $request->except('_token');
+            $update = Video::where('id', '=', $id)->update($all);
+            if ($update) {
+                return redirect()->back()->with('status', 'Kurum bilgileri güncellendi');
+            } else {
+                return redirect()->back()->with('status', 'Kurum bilgileri güncellenemedi');
+            }
+        } else {
+            return redirect('/');
+        }
+    }
 }

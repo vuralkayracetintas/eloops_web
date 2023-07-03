@@ -16,16 +16,16 @@
                     <div class="card-header" data-background-color="purple">
                         <h4 class="title">Video Icerik Duzenle</h4>
                         <p class="category">{{$data[0]['name']}}</p>
-                        <p class="category">Kurum Duzenle</p>
+                        <p class="category">Duzenle</p>
                     </div>
                     <div class="card-content">
-                        <form action="{{route('admin.kurumlar.edit.post',['id'=>$data[0]['id']])}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('admin.icerikler.edit.post',['id'=>$data[0]['id']])}}" method="POST" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group label-floating is-empty">
                                         <label>Video Basligi</label>
-                                        <input type="text" class="form-control" name="kurum_user_name" value="{{$data[0]['video_baslik']}}">
+                                        <input type="text" class="form-control" name="video_baslik" value="{{$data[0]['video_baslik']}}">
                                         <span class="material-input"></span>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
                                 <div class="form-group">
                                     <div class="form-group label-floating is-empty">
                                         <label> Video Aciklama</label>
-                                        <textarea class="form-control" rows="5" name='kurum_hakkinda'>{{$data[0]['video_aciklama']}}</textarea>
+                                        <textarea class="form-control" rows="5" name='video_aciklama'>{{$data[0]['video_aciklama']}}</textarea>
                                         <span class="material-input"></span>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
 
                                     <div class="form-group label-floating is-empty">
                                         <label>Video Etiketleri</label>
-                                        <input type="text" class="form-control" name='kurum_adi' value="{{$data[0]['video_tags']}}">
+                                        <input type="text" class="form-control" name='video_tags' value="{{$data[0]['video_tags']}}">
                                         <span class="material-input"></span>
                                     </div>
                                 </div>
@@ -71,14 +71,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group label-floating is-empty">
                                         <label>Video Yolu</label>
-                                        <input type="mail" class="form-control" name='kurum_email' value="{{$data[0]['video_yolu']}}" readonly->
+                                        <input type="mail" class="form-control" name='video_yolu' value="{{$data[0]['video_yolu']}}" readonly->
                                         <span class="material-input"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group label-floating is-empty">
                                         <label>Video Dosya Yolu</label>
-                                        <input type="text" class="form-control" name='kurum_phonenumber' value="{{$data[0]['video_dosya_yolu']}}" readonly>
+                                        <input type="text" class="form-control" name='video_dosya_yolu' value="{{$data[0]['video_dosya_yolu']}}" readonly>
                                         <span class="material-input"></span>
                                     </div>
                                 </div>
